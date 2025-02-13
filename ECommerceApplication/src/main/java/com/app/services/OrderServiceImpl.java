@@ -104,6 +104,8 @@ public class OrderServiceImpl implements OrderService {
 			} else {
 				payment.setAddress(paymentDTO.getAddress());
 			}
+		} else {
+			throw new APIException("Your payment method doesn't exist");
 		}
 
 		payment = paymentRepo.save(payment);
